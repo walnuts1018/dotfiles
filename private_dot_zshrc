@@ -144,7 +144,7 @@ export EDITOR=vim
 
 {{ if (ne .chezmoi.hostname "rikka") }}
 alias bat=batcat
-{{end}}
+{{ end }}
 alias fd=fdfind
 alias gr=rg
 alias "$"=""
