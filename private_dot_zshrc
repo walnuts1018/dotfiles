@@ -138,6 +138,9 @@ unset key
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+chezmoi git pull -- --autostash --rebase &
+chezmoi apply &
+
 export PATH="/home/juglans/.bin/:/home/juglans/.krew/bin:/home/juglans/go/bin:$PATH"
 export EDITOR=vim
 
