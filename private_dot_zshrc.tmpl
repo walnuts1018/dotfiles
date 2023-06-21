@@ -139,7 +139,7 @@ unset key
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PATH="/home/juglans/.krew/bin:/home/juglans/go/bin:$PATH"
-{{ if (ne .chezmoi.hostname "alice") }}
+{{ if (eq .chezmoi.hostname "alice") }}
 export PATH="/root/.bin/:$PATH"
 {{else}}
 export PATH="/home/juglans/.bin/:$PATH"
