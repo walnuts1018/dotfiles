@@ -142,6 +142,9 @@ export PATH="/home/juglans/.bin/:/home/juglans/.krew/bin:/home/juglans/go/bin:$P
 
 export EDITOR=vim
 
+$(chezmoi git pull -- --autostash --rebase >> /dev/null &)
+$(chezmoi apply >> /dev/null &)
+
 {{ if (ne .chezmoi.hostname "rikka") }}
 alias bat="batcat"
 {{ end }}
