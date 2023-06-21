@@ -142,9 +142,6 @@ export PATH="/home/juglans/.bin/:/home/juglans/.krew/bin:/home/juglans/go/bin:$P
 
 export EDITOR=vim
 
-{{ if (ne .chezmoi.hostname "rikka") }}
-alias bat=batcat
-{{ end }}
 alias fd=fdfind
 alias gr=rg
 alias "$"=""
