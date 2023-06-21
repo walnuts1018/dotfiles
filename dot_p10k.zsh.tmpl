@@ -235,6 +235,8 @@
   typeset -g POWERLEVEL9K_DIR_BACKGROUND=202
   {{ else if (eq .chezmoi.hostname "kurumi-03")}}
   typeset -g POWERLEVEL9K_DIR_BACKGROUND=13
+  {{ else }
+  typeset -g POWERLEVEL9K_DIR_BACKGROUND=4
   {{ end }}
 
   # Default current directory foreground color.
