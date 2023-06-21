@@ -158,3 +158,6 @@ alias fd=fdfind
 alias gr=rg
 alias "$"=""
 
+[[ /usr/bin/kubectl ]] && source <(kubectl completion zsh)
+[[ /usr/bin/helm ]] && source <(helm completion zsh)
+
