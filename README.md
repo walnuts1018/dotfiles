@@ -21,5 +21,5 @@ mv bin .bin
 ```
 
 ```zsh
-~/.bin/chezmoi init git@github.com:walnuts1018/dotfiles.git
+~/.bin/chezmoi init --apply git@github.com:walnuts1018/dotfiles.git
 ```
