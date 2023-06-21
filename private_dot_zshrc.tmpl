@@ -149,7 +149,7 @@ export EDITOR=vim
 
 $(chezmoi git pull -- --autostash --rebase >> /dev/null &)
 $(chezmoi apply >> /dev/null &)
-$(git -C ~/.ssh pull >> /dev/null &)
+$(git -C ~/.ssh pull >> /dev/null 2>> /dev/null &)
 
 {{ if (ne .chezmoi.hostname "rikka") }}
 alias bat="batcat"
