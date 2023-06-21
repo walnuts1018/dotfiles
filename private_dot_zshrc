@@ -142,8 +142,6 @@ export PATH="/home/juglans/.bin/:/home/juglans/.krew/bin:/home/juglans/go/bin:$P
 
 export EDITOR=vim
 
-alias ll=exa -l -h -@ -mU --icons --git --time-style=long-iso --color=automatic --group-directories-first
-alias l=ll -aa
 alias bat=batcat
 alias fd=fdfind
 alias gr=rg
