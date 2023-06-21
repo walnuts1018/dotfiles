@@ -190,7 +190,11 @@
 
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
+  {{ if (eq .chezmoi.hostname "rikka") }}
+  typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=6
+  {{ else }}
   typeset -g POWERLEVEL9K_OS_ICON_FOREGROUND=232
+  {{ end }}
   typeset -g POWERLEVEL9K_OS_ICON_BACKGROUND=7
   # Custom icon.
   # typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='⭐'
