@@ -141,8 +141,8 @@ unset key
 export PATH="/home/juglans/.bin/:/home/juglans/.krew/bin:/home/juglans/go/bin:$PATH"
 export EDITOR=vim
 
-nohup chezmoi git pull -- --autostash --rebase &
-nohup chezmoi apply &
+$(chezmoi git pull -- --autostash --rebase &)
+$(chezmoi apply &)
 
 alias fd=fdfind
 alias gr=rg
