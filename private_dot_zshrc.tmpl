@@ -151,12 +151,16 @@ $(chezmoi git pull -- --autostash --rebase >> /dev/null 2>> /dev/null &)
 $(chezmoi apply >> /dev/null 2>> /dev/null &)
 $(git -C ~/.ssh pull >> /dev/null 2>> /dev/null &)
 
+
+alias "sudo"="sudo "
 {{ if (ne .chezmoi.hostname "rikka") }}
 alias bat="batcat"
 {{ end }}
 alias fd=fdfind
 alias gr=rg
 alias "$"=""
+alias "vim"="vim -u ~/.vimrc"
+
 
 [[ /usr/bin/kubectl ]] && source <(kubectl completion zsh)
 [[ /usr/bin/helm ]] && source <(helm completion zsh)
