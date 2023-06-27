@@ -161,6 +161,7 @@ alias gr=rg
 alias "$"=""
 
 {{ if or (eq .chezmoi.hostname "k1") (eq .chezmoi.hostname "rikka") }}
+alias 'k'='kubectl'
 [[ /usr/bin/kubectl ]] && source <(kubectl completion zsh)
 [[ /usr/bin/helm ]] && source <(helm completion zsh)
 [[ /usr/bin/flux ]] && source <(flux completion zsh)
