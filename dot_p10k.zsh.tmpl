@@ -225,7 +225,7 @@
   ##################################[ dir: current directory ]##################################
   # Current directory background color.
   
-  {{ if (eq .chezmoi.hostname "kurumi-01") }}
+  {{ if (eq .chezmoi.hostname "cake") }}
   typeset -g POWERLEVEL9K_DIR_BACKGROUND=211
   {{ else if (eq .chezmoi.hostname "kurumi-02")}}
   typeset -g POWERLEVEL9K_DIR_BACKGROUND=199
@@ -235,7 +235,7 @@
   typeset -g POWERLEVEL9K_DIR_BACKGROUND=202
   {{ else if (eq .chezmoi.hostname "kurumi-03")}}
   typeset -g POWERLEVEL9K_DIR_BACKGROUND=13
-  {{ else if (eq .chezmoi.hostname "kurumi-04")}}
+  {{ else if (eq .chezmoi.hostname "kurumi-01")}}
   typeset -g POWERLEVEL9K_DIR_BACKGROUND=126
   {{ else if (eq .chezmoi.hostname "kurumi-05")}}
   typeset -g POWERLEVEL9K_DIR_BACKGROUND=164
