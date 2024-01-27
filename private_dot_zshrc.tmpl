@@ -143,10 +143,9 @@ export PATH="${HOME}/.bin/:$PATH"
 
 export EDITOR=vim
 
-$(chezmoi git pull -- --autostash --rebase >> /dev/null 2>> /dev/null &)
-$(chezmoi apply >> /dev/null 2>> /dev/null &)
+#$(chezmoi git pull -- --autostash --rebase >> /dev/null 2>> /dev/null &)
+#$(chezmoi apply >> /dev/null 2>> /dev/null &)
 $(git -C ~/.ssh pull >> /dev/null 2>> /dev/null &)
-
 
 alias "sudo"="sudo "
 {{ if (ne .chezmoi.hostname "rikka") }}
