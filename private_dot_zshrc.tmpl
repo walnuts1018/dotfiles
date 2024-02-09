@@ -155,8 +155,8 @@ alias fd=fdfind
 alias gr=rg
 alias "$"=""
 
-{{ if or (eq .chezmoi.hostname "kurumi-01") (eq .chezmoi.hostname "rikka") }}
 alias 'k'='kubectl'
+{{ if or (eq .chezmoi.hostname "cake") (eq .chezmoi.hostname "rikka") }}
 [[ /usr/bin/kubectl ]] && source <(kubectl completion zsh)
 [[ /usr/bin/helm ]] && source <(helm completion zsh)
 [[ /usr/bin/flux ]] && source <(flux completion zsh)
