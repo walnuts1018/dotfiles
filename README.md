@@ -20,3 +20,8 @@ chzmoi install
 sh -c "$(curl -fsLS get.chezmoi.io)"
 ~/bin/chezmoi init --apply https://github.com/walnuts1018/dotfiles.git
 ```
+
+tailscale install
+```zsh
+curl -fsSL https://tailscale.com/install.sh | sh
+```
