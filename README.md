@@ -24,4 +24,5 @@ sh -c "$(curl -fsLS get.chezmoi.io)"
 tailscale install
 ```zsh
 curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up
 ```
