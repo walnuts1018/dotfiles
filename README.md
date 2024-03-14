@@ -4,7 +4,7 @@
 
 zsh install
 ```bash
-sudo apt install zsh git
+sudo apt install -y zsh git
 chsh -s $(which zsh)
 exit
 ```
