@@ -4,7 +4,7 @@
 
 zsh install
 ```bash
-sudo apt install zsh git
+sudo apt install -y zsh git
 chsh -s $(which zsh)
 exit
 ```
@@ -14,12 +14,15 @@ zim install
 curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 exit
 ```
+
 chzmoi install
 ```zsh
 sh -c "$(curl -fsLS get.chezmoi.io)"
-mv bin .bin
+~/bin/chezmoi init --apply https://github.com/walnuts1018/dotfiles.git
 ```
 
+tailscale install
 ```zsh
-~/.bin/chezmoi init --apply https://github.com/walnuts1018/dotfiles.git
+curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up
 ```
