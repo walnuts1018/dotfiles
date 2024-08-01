@@ -152,14 +152,14 @@ alias bat="batcat"
 alias fd=fdfind
 alias gr=rg
 alias "$"=""
-
 alias 'k'='kubectl'
-[[ /usr/bin/kubectl ]] && source <(kubectl completion zsh)
-[[ /usr/bin/helm ]] && source <(helm completion zsh)
-[[ /usr/bin/flux ]] && source <(flux completion zsh)
+
+{{ type kubectl >/dev/null 2>&1 }} && source <(kubectl completion zsh)
+{{ type helm >/dev/null 2>&1 }} && source <(helm completion zsh)
+{{ type flux >/dev/null 2>&1 }} && source <(flux completion zsh)
 
 export PATH="$HOME/.plenv/bin:$PATH"
-#eval "$(plenv init - zsh)"
+{{ type plenv >/dev/null 2>&1 }} && eval "$(plenv init - zsh)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
@@ -168,5 +168,5 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 alias "ghqcd"="cd \$(ghq root)'/'\$(ghq list | peco)"
 
-#eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+[[ -s /home/linuxbrew/.linuxbrew/bin/brew ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
