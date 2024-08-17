@@ -170,3 +170,6 @@ alias "ghqcd"="cd \$(ghq root)'/'\$(ghq list | peco)"
 
 [[ -s /home/linuxbrew/.linuxbrew/bin/brew ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
+
+{{ type aptpac >/dev/null 2>&1 }} && alias apt=aptpac
+
