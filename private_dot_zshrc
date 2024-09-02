@@ -174,3 +174,5 @@ alias "ghqcd"="cd \$(ghq root)'/'\$(ghq list | peco)"
 
 {{ type aptpac >/dev/null 2>&1 }} && alias apt=aptpac
 
+alias 'etcdctl'='ETCDCTL_API=3 ETCDCTL_CACERT=/etc/kubernetes/pki/etcd/ca.crt ETCDCTL_CERT=/etc/kubernetes/pki/etcd/server.crt ETCDCTL_KEY=/etc/kubernetes/pki/etcd/server.key etcdctl'
+
