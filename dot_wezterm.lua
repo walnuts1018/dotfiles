@@ -2,12 +2,23 @@ local wezterm = require 'wezterm'
 local act = wezterm.action
 local config = wezterm.config_builder()
 
+-- check os
+local windows = wezterm.target_triple == "x86_64-pc-windows-msvc"
+local mac_x86 = wezterm.target_triple == "x86_64-apple-darwin"
+local mac_arm = wezterm.target_triple == "aarch64-apple-darwin"
+local linux = wezterm.target_triple == "x86_64-unknown-linux-gnu"
+
+if mac_x86 or mac_arm then
+    config.default_prog = {"/bin/zsh"}
+elseif linux then
+    config.default_prog = {"/usr/bin/zsh"}
+elseif windows then
+    config.default_prog = {"C:\\Program Files\\PowerShell\\7\\pwsh.exe"}
+end
+
 config.color_scheme = "Tango (terminal.sexy)"
 config.window_background_opacity = 1
-
-config.default_prog = {"C:\\Program Files\\PowerShell\\7\\pwsh.exe"}
 config.font = wezterm.font_with_fallback {'MesloLGS NF'}
-
 config.default_cursor_style = 'BlinkingBar'
 config.cursor_blink_rate = 500
 config.cursor_blink_ease_out = "Constant"
@@ -54,7 +65,7 @@ config.colors = {
 
 config.background = {{
     source = {
-        File = 'C:\\Users\\juglans\\Pictures\\81041584_p0.jpg'
+        File = '.wezterm-background.jpg'
     },
     width = '100%',
     repeat_x = 'NoRepeat',

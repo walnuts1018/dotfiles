@@ -139,7 +139,7 @@ unset key
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PATH="/usr/sbin:${HOME}/.krew/bin:${HOME}/go/bin:$PATH"
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/go/bin:/usr/local/bin
 export PATH="${HOME}/.bin/:$PATH"
 
 export EDITOR=vim
