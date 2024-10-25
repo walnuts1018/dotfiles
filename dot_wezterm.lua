@@ -6,14 +6,13 @@ local config = wezterm.config_builder()
 local windows = wezterm.target_triple == "x86_64-pc-windows-msvc"
 local mac_x86 = wezterm.target_triple == "x86_64-apple-darwin"
 local mac_arm = wezterm.target_triple == "aarch64-apple-darwin"
+local mac = mac_x86 or mac_arm
 local linux = wezterm.target_triple == "x86_64-unknown-linux-gnu"
 
-if mac_x86 or mac_arm then
-    config.default_prog = {"/bin/zsh"}
-elseif linux then
-    config.default_prog = {"/usr/bin/zsh"}
+if mac or linux then
+    config.default_prog = {"zsh"}
 elseif windows then
-    config.default_prog = {"C:\\Program Files\\PowerShell\\7\\pwsh.exe"}
+    config.default_prog = {"pwsh.exe"}
 end
 
 config.color_scheme = "Tango (terminal.sexy)"
@@ -44,14 +43,29 @@ config.mouse_bindings = {{
     action = act.PasteFrom 'Clipboard'
 }}
 
+local controlKey = mac and 'CMD' or 'CTRL'
+
 config.keys = {{
     key = 'V',
-    mods = 'CTRL',
+    mods = controlKey,
     action = act.PasteFrom 'Clipboard'
 }, {
-    key = 'V',
-    mods = 'CTRL',
-    action = act.PasteFrom 'PrimarySelection'
+    key = 'c',
+    mods = controlKey,
+    action = wezterm.action_callback(function(window, pane)
+        selection_text = window:get_selection_text_for_pane(pane)
+        is_selection_active = string.len(selection_text) ~= 0
+        wezterm.log_info("is_selection_active: " .. tostring(is_selection_active))
+        if is_selection_active then
+            window:perform_action(wezterm.action.CopyTo('ClipboardAndPrimarySelection'), pane)
+            window:perform_action(act.ClearSelection, pane)
+        else
+            window:perform_action(wezterm.action.SendKey {
+                key = 'c',
+                mods = 'CTRL'
+            }, pane)
+        end
+    end)
 }}
 
 config.enable_scroll_bar = true
@@ -63,15 +77,25 @@ config.colors = {
     cursor_border = "#ffffff"
 }
 
+config.window_frame = {
+    font_size = 12.0
+}
+
+wezterm.log_error('Home ' .. wezterm.home_dir)
+
 config.background = {{
     source = {
-        File = '.wezterm-background.jpg'
+        File = wezterm.home_dir .. '/.wezterm-background.png'
     },
-    width = '100%',
+    height = "Cover",
     repeat_x = 'NoRepeat',
+    horizontal_align = 'Right',
     hsb = {
         brightness = 0.05
     }
 }}
+
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+config.tab_and_split_indices_are_zero_based = true
 
 return config
