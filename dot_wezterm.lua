@@ -81,8 +81,6 @@ config.window_frame = {
     font_size = 12.0
 }
 
-wezterm.log_error('Home ' .. wezterm.home_dir)
-
 config.background = {{
     source = {
         File = wezterm.home_dir .. '/.wezterm-background.png'
