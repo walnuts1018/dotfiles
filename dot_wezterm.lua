@@ -25,22 +25,24 @@ config.cursor_blink_ease_in = "Constant"
 
 config.mouse_bindings = {{
     event = {
-        Up = {
-            streak = 1,
-            button = 'Left'
-        }
-    },
-    mods = 'NONE',
-    action = act.CopyTo 'ClipboardAndPrimarySelection'
-}, {
-    event = {
         Down = {
             streak = 1,
             button = 'Right'
         }
     },
     mods = 'NONE',
-    action = act.PasteFrom 'Clipboard'
+    -- action = act.PasteFrom 'Clipboard'
+    action = wezterm.action_callback(function(window, pane)
+        selection_text = window:get_selection_text_for_pane(pane)
+        is_selection_active = string.len(selection_text) ~= 0
+        wezterm.log_info("is_selection_active: " .. tostring(is_selection_active))
+        if is_selection_active then
+            window:perform_action(wezterm.action.CopyTo('ClipboardAndPrimarySelection'), pane)
+            window:perform_action(act.ClearSelection, pane)
+        else
+            window:perform_action(wezterm.action.PasteFrom('Clipboard'), pane)
+        end
+    end)
 }}
 
 local controlKey = mac and 'CMD' or 'CTRL'
@@ -80,6 +82,8 @@ config.colors = {
 config.window_frame = {
     font_size = 12.0
 }
+
+wezterm.log_error('Home ' .. wezterm.home_dir)
 
 config.background = {{
     source = {
