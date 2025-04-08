@@ -158,6 +158,7 @@ alias 'k'='kubectl'
 {{ type kubectl >/dev/null 2>&1 }} && source <(kubectl completion zsh)
 {{ type helm >/dev/null 2>&1 }} && source <(helm completion zsh)
 {{ type flux >/dev/null 2>&1 }} && source <(flux completion zsh)
+{{ type docker >/dev/null 2>&1 }} && source <(docker completion zsh)
 
 export PATH="$HOME/.plenv/bin:$PATH"
 {{ type plenv >/dev/null 2>&1 }} && eval "$(plenv init - zsh)"
