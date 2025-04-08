@@ -68,6 +68,26 @@ config.keys = {{
             }, pane)
         end
     end)
+}, {
+    key = "LeftArrow",
+    mods = controlKey,
+    action = act.SendKey {
+        key = "b",
+        mods = "META"
+    }
+}, {
+    key = "RightArrow",
+    mods = controlKey,
+    action = act.SendKey {
+        key = "f",
+        mods = "META"
+    }
+}, {
+    key = '|',
+    mods = controlKey .. '|SHIFT',
+    action = wezterm.action.SplitHorizontal {
+        domain = 'CurrentPaneDomain'
+    }
 }}
 
 config.enable_scroll_bar = true
