@@ -118,6 +118,7 @@ config.background = {{
 }}
 
 config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+config.native_macos_fullscreen_mode = true
 config.tab_and_split_indices_are_zero_based = true
 
 return config
