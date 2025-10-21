@@ -1,10 +1,32 @@
 [user]
-    email = r.juglans.1018@gmail.com
-    name = walnuts1018
-[url "git@github.com:"]
-    pushInsteadOf = https://github.com/
-    insteadOf = https://github.com/
+email = r.juglans.1018@gmail.com
+name = walnuts1018
+signingkey = E70DD2A335E141F21F77256E0794164839308579
+
+[includeIf "gitdir:~/ghq/github.com/hatena/"]
+path = ~/.gitconfig_hatena
+
 [ghq]
-    user = walnuts1018
+user = walnuts1018
+
 [pull]
-    rebase = false
+rebase = false
+
+[filter "lfs"]
+smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+required = true
+clean = git-lfs clean -- %f
+
+[core]
+excludesfile = /Users/walnuts1018/.gitignore_global
+
+[commit]
+template = /Users/walnuts1018/.stCommitMsg
+
+[url "git@github.com:"]
+pushInsteadOf = https://github.com/
+insteadOf = https://github.com/
+
+[gpg]
+program = /opt/homebrew/bin/gpg
