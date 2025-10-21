@@ -150,7 +150,6 @@ $(git -C ~/.ssh pull >> /dev/null 2>> /dev/null &)
 
 alias "sudo"="sudo "
 alias bat="batcat"
-alias fd=fdfind
 alias gr=rg
 alias "$"=""
 alias 'k'='kubectl'
@@ -180,3 +179,4 @@ export PATH="$PATH:${HOME}/.rd/bin"
 
 alias 'etcdctl'='ETCDCTL_API=3 ETCDCTL_CACERT=/etc/kubernetes/pki/etcd/ca.crt ETCDCTL_CERT=/etc/kubernetes/pki/etcd/server.crt ETCDCTL_KEY=/etc/kubernetes/pki/etcd/server.key etcdctl'
 
+export SAVEHIST=100000
