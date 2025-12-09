@@ -150,7 +150,6 @@ $(git -C ~/.ssh pull >> /dev/null 2>> /dev/null &)
 
 alias "sudo"="sudo "
 alias bat="batcat"
-alias fd=fdfind
 alias gr=rg
 alias "$"=""
 alias 'k'='kubectl'
@@ -159,6 +158,7 @@ alias 'k'='kubectl'
 {{ type helm >/dev/null 2>&1 }} && source <(helm completion zsh)
 {{ type flux >/dev/null 2>&1 }} && source <(flux completion zsh)
 {{ type docker >/dev/null 2>&1 }} && source <(docker completion zsh)
+{{ type aqua >/dev/null 2>&1 }} && source <(aqua completion zsh)
 
 export PATH="$HOME/.plenv/bin:$PATH"
 {{ type plenv >/dev/null 2>&1 }} && eval "$(plenv init - zsh)"
@@ -179,4 +179,6 @@ export PATH="$PATH:${HOME}/.rd/bin"
 {{ type aptpac >/dev/null 2>&1 }} && alias apt=aptpac
 
 alias 'etcdctl'='ETCDCTL_API=3 ETCDCTL_CACERT=/etc/kubernetes/pki/etcd/ca.crt ETCDCTL_CERT=/etc/kubernetes/pki/etcd/server.crt ETCDCTL_KEY=/etc/kubernetes/pki/etcd/server.key etcdctl'
+export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH"
 
+export SAVEHIST=100000
